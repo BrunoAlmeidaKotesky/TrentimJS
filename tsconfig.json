@@ -16,6 +16,7 @@
         "noUnusedLocals": false,
         "allowJs": true,
         "resolveJsonModule": true,
+        "esModuleInterop":false,
 
         "typeRoots": [
             "./node_modules/@types",

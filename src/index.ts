@@ -1,2 +1,1 @@
-const Basic = (a: string) => a;
-export default Basic;
+export * from './utils/stringHelpers';
