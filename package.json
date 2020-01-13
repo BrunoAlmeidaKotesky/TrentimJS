@@ -1,8 +1,8 @@
 {
   "name": "trentimjs",
-  "version": "1.0.3-6",
+  "version": "1.0.3-7",
   "description": "Utils para React/NodeJS",
-  "main": "index.ts",
+  "main": "lib/index.js",
   "repository": " ",
   "author": "Bruno Almeida Kotesky",
   "license": "MIT",
@@ -28,5 +28,6 @@
   },
   "files": [
     "lib/**/*"
-  ]
+  ],
+  "types": "lib/index.d.ts"
 }
