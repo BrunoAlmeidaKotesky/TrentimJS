@@ -2,7 +2,7 @@
     "compilerOptions": {
         "target": "es5",
         "forceConsistentCasingInFileNames": true,
-        "module": "esnext",
+        "module": "commonjs",
         "moduleResolution": "node",
         "strict": true,
         "jsx": "react",
@@ -10,18 +10,13 @@
         "sourceMap": true,
         "experimentalDecorators": true,
         "skipLibCheck": true,
-        "outDir": "lib",
+        "outDir": "./lib",
         "inlineSources": false,
         "strictNullChecks": false,
         "noUnusedLocals": false,
         "allowJs": true,
         "resolveJsonModule": true,
         "esModuleInterop":false,
-
-        "typeRoots": [
-            "./node_modules/@types",
-            "./node_modules/@microsoft"
-        ],
         "lib": [
             "es2017.object",
             "es2017",
@@ -31,9 +26,7 @@
             "es2015.collection"
         ]
     },
-    "include": [
-        "src/**/*.ts"
-    ],
+    "include": ["src"],
 
     "exclude": [
         "node_modules",
