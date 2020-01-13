@@ -1,0 +1,15 @@
+{
+  "name": "TrentimJS",
+  "version": "1.0.0",
+  "description": "Utils para React/NodeJS",
+  "main": "index.ts",
+  "repository": " ",
+  "author": "Bruno Almeida Kotesky",
+  "license": "MIT",
+  "dependencies": {
+    "typescript": "^3.7.4"
+  },
+  "scripts":{
+    "build": "tsc"
+  }
+}
