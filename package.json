@@ -1,15 +1,34 @@
 {
   "name": "TrentimJS",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Utils para React/NodeJS",
   "main": "index.ts",
   "repository": " ",
   "author": "Bruno Almeida Kotesky",
   "license": "MIT",
-  "dependencies": {
+  "dependencies": {},
+  "devDependencies": {
+    "@types/jest": "^24.0.25",
+    "@types/mocha": "^5.2.7",
+    "jest": "^24.9.0",
+    "prettier": "^1.19.1",
+    "ts-jest": "^24.3.0",
+    "tslint": "^5.20.1",
+    "tslint-config-prettier": "^1.18.0",
     "typescript": "^3.7.4"
   },
-  "scripts":{
-    "build": "tsc"
-  }
+  "scripts": {
+    "build": "tsc",
+    "format": "prettier --write \"src/**/*.ts\" \"src/**/*.js\"",
+    "lint": "tslint -p tsconfig.json",
+    "test": "jest --config jestconfig.json",
+    "prepare": "yarn run build",
+    "prepublishOnly": "yarn test && yarn run lint",
+    "preversion": "yarn run lint",
+    "version": "yarn run format && git add -A src",
+    "postversion": "git push && git push --tags"
+  },
+  "files": [
+    "lib/**/*"
+  ]
 }
