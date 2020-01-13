@@ -10,11 +10,11 @@ describe('String functions helpers tests', () => {
   });
 });
 
-describe('Object function: @objFormatter test',()=>{
-  it('Should rename all objects key names to CamelCase without specialCharacters',()=>{
+describe('Object function: @objFormatter test', () => {
+  it('Should rename all objects key names to CamelCase without specialCharacters', () => {
     const testDate = new Date('13/01/2020');
-    const exArrObj = [{" gross sale  ": 200, " data de separação": testDate}];
+    const exArrObj = [{ ' gross sale  ': 200, ' data de separação': testDate }];
 
-    expect(objFormatter(exArrObj)).toStrictEqual([{"GrossSale": 200, "DataDeSeparacao": testDate}]);
+    expect(objFormatter(exArrObj)).toStrictEqual([{ GrossSale: 200, DataDeSeparacao: testDate }]);
   });
 });

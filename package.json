@@ -1,6 +1,6 @@
 {
-  "name": "TrentimJS",
-  "version": "1.0.1",
+  "name": "trentimjs",
+  "version": "1.0.3",
   "description": "Utils para React/NodeJS",
   "main": "index.ts",
   "repository": " ",
@@ -20,11 +20,9 @@
   "scripts": {
     "build": "tsc",
     "format": "prettier --write \"src/**/*.ts\" \"src/**/*.js\"",
-    "lint": "tslint -p tsconfig.json",
     "test": "jest --config jestconfig.json",
     "prepare": "yarn run build",
-    "prepublishOnly": "yarn test && yarn run lint",
-    "preversion": "yarn run lint",
+    "prepublishOnly": "yarn test",
     "version": "yarn run format && git add -A src",
     "postversion": "git push && git push --tags"
   },
