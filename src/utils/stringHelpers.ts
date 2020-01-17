@@ -1,4 +1,4 @@
-import { NameConventions } from '../models/types';
+import { NameConventions, ResultType } from '../models/types';
 const specialChar = /[\s`~!@#~´º%^&*()|+\-=?;:'",.<>\{\}\[\]\\\/]/gi;
 const whiteSpace = / /g;
 const uniCAccents = /[\u0300-\u036f]/g;
@@ -101,3 +101,13 @@ export const objFormatter = (obj: object, nameConv?: NameConventions) => {
     );
   }
 };
+const initialValue = {} as const;
+export function convertArrayToObject<T, R>(array: T[], key: keyof T): ResultType<R> {
+  let reducedArry = array.reduce((obj, item) => {
+    return {
+      ...obj,
+      [item[key as string | number | symbol]]: item,
+    };
+  }, initialValue);
+  return reducedArry;
+}

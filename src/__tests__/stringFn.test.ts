@@ -1,4 +1,4 @@
-import { capitalizer, strFormatter, objFormatter } from '../utils/stringHelpers';
+import { capitalizer, strFormatter } from '../utils/stringHelpers';
 
 describe('String functions helpers tests', () => {
   it('Should capititalize any string', () => {
@@ -20,27 +20,5 @@ describe('String functions helpers tests', () => {
 
   it('Should format to lowercase', () => {
     expect(strFormatter(' bãd Ob*jec t%;', 'lowercase')).toBe('badobject');
-  });
-});
-
-describe('Object function: @objFormatter test', () => {
-  const testDate = new Date('13/01/2020');
-  const exArrObj = [{ ' gross sale  ': 200, ' data de separação': testDate }];
-
-  it('Should rename all objects key names to CamelCase without specialCharacters', () => {
-    expect(objFormatter(exArrObj)).toStrictEqual([{ GrossSale: 200, DataDeSeparacao: testDate }]);
-  });
-  //Strings naming convertions tests:
-  it('Should apply the strFormatter with the paramns to the object', () => {
-    expect(objFormatter(exArrObj, 'under_score')).toStrictEqual([{ gross_sale: 200, data_de_separacao: testDate }]);
-  });
-  it('Should apply the strFormatter with the paramns to the object', () => {
-    expect(objFormatter(exArrObj, 'lowercase')).toStrictEqual([{ grosssale: 200, datadeseparacao: testDate }]);
-  });
-  it('Should apply the strFormatter with the paramns to the object', () => {
-    expect(objFormatter(exArrObj, 'camelCase')).toStrictEqual([{ grossSale: 200, dataDeSeparacao: testDate }]);
-  });
-  it('Should apply the strFormatter with the paramns to the object', () => {
-    expect(objFormatter(exArrObj, 'PascalCase')).toStrictEqual([{ GrossSale: 200, DataDeSeparacao: testDate }]);
   });
 });
