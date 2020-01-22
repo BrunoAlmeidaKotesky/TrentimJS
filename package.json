@@ -1,12 +1,14 @@
 {
   "name": "trentimjs",
-  "version": "1.0.5",
+  "version": "1.0.5-5",
   "description": "Utils para React/NodeJS",
   "main": "lib/index.js",
   "repository": " ",
   "author": "Bruno Almeida Kotesky",
   "license": "MIT",
-  "dependencies": {},
+  "dependencies": {
+    "sequelize": "^5.21.3"
+  },
   "devDependencies": {
     "@types/jest": "^24.0.25",
     "@types/mocha": "^5.2.7",

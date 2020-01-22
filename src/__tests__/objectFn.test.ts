@@ -1,6 +1,6 @@
 import { ResultType } from './../models/types';
 import { mockArr } from './../models/interfaces';
-import { objFormatter, convertArrayToObject } from '../utils/stringHelpers';
+import { objFormatter, convertArrayToObject } from '../utils/objectHelpers';
 
 describe('Object function: @objFormatter test', () => {
   const testDate = new Date('13/01/2020');
@@ -21,6 +21,17 @@ describe('Object function: @objFormatter test', () => {
   });
   it('Should apply the strFormatter with the paramns to the object', () => {
     expect(objFormatter(exArrObj, 'PascalCase')).toStrictEqual([{ GrossSale: 100, DataDeSeparacao: testDate }]);
+  });
+  it('Should apply the strFormatter to different object types', () => {
+    const apply = function() {};
+    const _apply = (x: string) => x;
+    function apply_() {}
+    let result1 = objFormatter(apply, 'under_score');
+    let result2 = objFormatter(_apply, 'under_score');
+    let result3 = objFormatter(apply_, 'under_score');
+    let fArr = [apply, _apply, apply_];
+    console.log(result1, result2, result3);
+    console.log(fArr);
   });
 });
 
@@ -47,4 +58,31 @@ describe('Testing function: convertArrayToObject in a typescript enviroment', ()
     expect(firstReturnPosition).toStrictEqual({ ID: 1, Date: new Date('01/01/2020'), name: 'Bruno' });
     expect(firstReturnPosition.ID).toBe(1);
   });
+});
+
+it('Should convert an array to object, but not all array values exist', () => {
+  const mockArr1 = [
+    {
+      ProgrammingL: [
+        {
+          typed: true,
+          name: 'Typescript',
+        },
+        {
+          typed: false,
+          name: 'Javascript',
+        },
+      ],
+      RandomObj: 1,
+      nestedObj: {
+        tree: {
+          a1: 1,
+          a2: 'one',
+        },
+      },
+    },
+    {
+      IShouldntBeHere: 1,
+    },
+  ];
 });

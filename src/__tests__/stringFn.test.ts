@@ -21,4 +21,10 @@ describe('String functions helpers tests', () => {
   it('Should format to lowercase', () => {
     expect(strFormatter(' bãd Ob*jec t%;', 'lowercase')).toBe('badobject');
   });
+
+  it('It should include the *', () => {
+    expect(strFormatter(' bãd Ob*jec t%;', 'lowercase', /[\s`~!@#~´º%^&()|+\-=?;:'",.<>\{\}\[\]\\\/]/gi)).toBe(
+      'badob*ject',
+    );
+  });
 });
