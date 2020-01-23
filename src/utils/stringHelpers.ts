@@ -29,7 +29,7 @@ export function camelize(text: string) {
  * remove all whitespaces, remove some special characters
  * and remove most of unicode accents
  */
-export function strFormatter(str: string, nameConv?: NameConventions, extraChar?: RegExp) {
+export function strFormatter(str: string, nameConv?: NameConventions, reg?: RegExp | string) {
   if (typeof str !== 'string') throw Error('The argument must be a string');
   else {
     switch (nameConv) {
@@ -38,27 +38,28 @@ export function strFormatter(str: string, nameConv?: NameConventions, extraChar?
       case 'PascalCase':
         return capitalizer(str)
           .replace(whiteSpace, '')
-          .replace(extraChar! ?? specialChar, '')
+          .replace(reg! ?? specialChar, '')
           .normalize('NFD')
           .replace(uniCAccents, '');
       case 'lowercase':
         return unCapitalizer(str)
           .replace(whiteSpace, '')
-          .replace(extraChar! ?? specialChar, '')
+          .replace(reg! ?? specialChar, '')
           .normalize('NFD')
           .replace(uniCAccents, '');
       case 'camelCase':
         return camelize(str)
           .replace(whiteSpace, '')
-          .replace(extraChar! ?? specialChar, '')
+          .replace(reg! ?? specialChar, '')
           .normalize('NFD')
           .replace(uniCAccents, '');
       case 'under_score':
       case 'underscore':
+      case 'snake_case':
         return unCapitalizer(str)
           .trim()
           .replace(whiteSpace, '_')
-          .replace(extraChar! ?? specialChar, '')
+          .replace(reg! ?? specialChar, '')
           .normalize('NFD')
           .replace(uniCAccents, '');
       default:

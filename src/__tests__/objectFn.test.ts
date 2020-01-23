@@ -6,33 +6,45 @@ describe('Object function: @objFormatter test', () => {
   const testDate = new Date('13/01/2020');
   const exArrObj = [{ ' gross sale  ': 100, ' data de separação': testDate }];
 
-  it('Should rename all objects key names to CamelCase without specialCharacters', () => {
+  it('Should rename all objects key names to PascalCase without specialCharacters', () => {
     expect(objFormatter(exArrObj)).toStrictEqual([{ GrossSale: 100, DataDeSeparacao: testDate }]);
+  });
+  it('Should rename all objects key names to PascalCase without specialCharacters but with SPECIAL CHARACTERS', () => {
+    expect(objFormatter([{ 'Obj*': 1, Obj2: 'aa' }], { extraChar: '*' })).toStrictEqual([{ Obj: 1, Obj2: 'aa' }]);
   });
   //Strings naming convertions tests:
   it('Should apply the strFormatter with the paramns to the object', () => {
-    expect(objFormatter(exArrObj, 'under_score')).toStrictEqual([{ gross_sale: 100, data_de_separacao: testDate }]);
+    expect(objFormatter(exArrObj, { nameConv: 'under_score' })).toStrictEqual([
+      { gross_sale: 100, data_de_separacao: testDate },
+    ]);
   });
   it('Should apply the strFormatter with the paramns to the object', () => {
-    expect(objFormatter(exArrObj, 'lowercase')).toStrictEqual([{ grosssale: 100, datadeseparacao: testDate }]);
+    expect(objFormatter(exArrObj, { nameConv: 'lowercase' })).toStrictEqual([
+      { grosssale: 100, datadeseparacao: testDate },
+    ]);
   });
   it('Should apply the strFormatter with the paramns to the object', () => {
-    expect(objFormatter(exArrObj, 'camelCase')).toStrictEqual([{ grossSale: 100, dataDeSeparacao: testDate }]);
+    expect(objFormatter(exArrObj, { nameConv: 'camelCase' })).toStrictEqual([
+      { grossSale: 100, dataDeSeparacao: testDate },
+    ]);
   });
   it('Should apply the strFormatter with the paramns to the object', () => {
-    expect(objFormatter(exArrObj, 'PascalCase')).toStrictEqual([{ GrossSale: 100, DataDeSeparacao: testDate }]);
+    expect(objFormatter(exArrObj, { nameConv: 'PascalCase' })).toStrictEqual([
+      { GrossSale: 100, DataDeSeparacao: testDate },
+    ]);
   });
   it('Should apply the strFormatter to different object types', () => {
     const apply = function() {};
     const _apply = (x: string) => x;
     function apply_() {}
-    let result1 = objFormatter(apply, 'under_score');
-    let result2 = objFormatter(_apply, 'under_score');
-    let result3 = objFormatter(apply_, 'under_score');
-    let fArr = [apply, _apply, apply_];
-    console.log(result1, result2, result3);
-    console.log(fArr);
+    let result1 = objFormatter(apply, { nameConv: 'under_score' });
+    let result2 = objFormatter(_apply, { nameConv: 'under_score' });
+    let result3 = objFormatter(apply_, { nameConv: 'under_score' });
+    //console.log(result1, result2, result3);
   });
+  expect(objFormatter([{ 'Obj*': 1, Obj2: 'aa' }], { nameConv: 'PascalCase', extraChar: '*' })).toStrictEqual([
+    { Obj: 1, Obj2: 'aa' },
+  ]);
 });
 
 describe('Testing function: convertArrayToObject in a typescript enviroment', () => {
