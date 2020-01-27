@@ -1,6 +1,6 @@
 {
     "compilerOptions": {
-        "target": "es5",
+        "target": "es2019",
         "forceConsistentCasingInFileNames": true,
         "module": "commonjs",
         "moduleResolution": "node",
@@ -27,7 +27,7 @@
             "es2015.collection"
         ]
     },
-    "include": ["src"],
+    "include": ["src/**/*.ts"],
 
     "exclude": [
         "node_modules",
