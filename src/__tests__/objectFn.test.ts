@@ -91,29 +91,4 @@ describe('Testing function: convertArrayToObject in a typescript enviroment', ()
   });
 });
 
-it('Should convert an array to object, but not all array values exist', () => {
-  const mockArr1 = [
-    {
-      ProgrammingL: [
-        {
-          typed: true,
-          name: 'Typescript',
-        },
-        {
-          typed: false,
-          name: 'Javascript',
-        },
-      ],
-      RandomObj: 1,
-      nestedObj: {
-        tree: {
-          a1: 1,
-          a2: 'one',
-        },
-      },
-    },
-    {
-      IShouldntBeHere: 1,
-    },
-  ];
-});
+it('Should convert an array to object, but not all array values exist', () => {});

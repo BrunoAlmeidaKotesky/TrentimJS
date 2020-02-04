@@ -1,8 +1,7 @@
-import { NameConventions, ResultType } from '../models/types';
+import { ResultType, FormatterOpt } from '../models/types';
 import { strFormatter } from './stringHelpers';
 
 const specialChar = /[\s`~!@#~´º%^&*()|+\-=?;:'",.<>\{\}\[\]\\\/]/gi;
-type FormatterOpt = { nameConv?: NameConventions; extraChar?: RegExp | string; ignore?: string };
 /**
  * @param obj Convert all the oject key names to PascalCase key name
  * @param nameConvt optional formatter for the object, see type NameConvetions type for more info.

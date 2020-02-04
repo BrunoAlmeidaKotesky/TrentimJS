@@ -6,12 +6,7 @@ const uniCAccents = /[\u0300-\u036f]/g;
 /**
  * @param text a string to be capitalized to PascalCase
  */
-export function capitalizer(text: string) {
-  return text.replace(/(?:^|\s)\S/g, function(a: string) {
-    return a.toUpperCase();
-  });
-}
-
+export const capitalizer = (text: string) => text.replace(/(?:^|\s)\S/g, (a: string) => a.toUpperCase());
 export const unCapitalizer = (text: string) => text.toLowerCase();
 
 export function camelize(text: string) {
@@ -25,7 +20,7 @@ export function camelize(text: string) {
  *
  * @param str a string value to be passed, it will format the string to PascalCase by default,
  * @param nameConv optional: specify what naming convetion format it will be formmated
- * @types 'camelCase', 'PascalCase', 'lowercase', ('under_score' || 'underscore')
+ * @types 'camelCase', 'PascalCase', 'lowercase', ('under_score' or 'underscore' or 'snake_case')
  * remove all whitespaces, remove some special characters
  * and remove most of unicode accents
  */
