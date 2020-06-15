@@ -1,4 +1,4 @@
-# TrentimJS
+# ObjectFormatter
 
 **Please, contribute to provide a better documentation**
 
